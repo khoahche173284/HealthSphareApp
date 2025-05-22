@@ -4,6 +4,7 @@ vào terminal
 
 B1: npm install
 
-B2 : npm run start    chọn --web
+B2 : npx expo start --web
+
 
 
