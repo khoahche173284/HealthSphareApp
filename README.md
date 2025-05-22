@@ -1,7 +1,9 @@
-.
+sau khi clone:
+vào terminal
 
-npm install
 
-npm run start     --web
+B1: npm install
+
+B2 : npm run start    chọn --web
 
 
