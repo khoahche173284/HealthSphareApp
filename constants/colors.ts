@@ -1,22 +1,22 @@
-const tintColorLight = "#4A90E2";
-const tintColorDark = "#6AADFF";
+const tintColorLight = "#3DC485";
+const tintColorDark = "#22A885";
 
 export default {
   light: {
-    text: "#333333",
-    background: "#FFFFFF",
+    text: "#FFFFFF",
+    background: "#3FCC8A",
     tint: tintColorLight,
     tabIconDefault: "#CCCCCC",
     tabIconSelected: tintColorLight,
-    card: "#F8F9FA",
+    card: "#1F1F1F", // nen chínhchính
     border: "#E5E5E5",
     notification: "#FF3B30",
-    primary: "#4A90E2",
-    secondary: "#5AC8FA",
+    primary: "#0C760C", // sellect
+    secondary: "#4A2800",
     success: "#34C759",
     warning: "#FFCC00",
     danger: "#FF3B30",
-    muted: "#8E8E93",
+    muted: "#FFFFFF",
     highlight: "#E8F4FF",
     water: "#5AC8FA",
     food: "#FFCC00",
