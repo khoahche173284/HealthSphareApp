@@ -63,7 +63,7 @@ export default function ExerciseScreen() {
 
   const renderExerciseItem = ({ item }: { item: Exercise }) => (
     <TouchableOpacity onPress={() => handleExercisePress(item)}>
-      <ExerciseCard exercise={item} />
+      <ExerciseCard exercise={item} onPress={handleExercisePress} />
     </TouchableOpacity>
   );
 
