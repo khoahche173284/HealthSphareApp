@@ -9,12 +9,12 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import Colors from "@/constants/colors";
-import { exercises, Exercise } from "@/mocks/exercises";
-import ExerciseCard from "@/components/ExerciseCard";
+import Colors from "../../constants/colors";
+import { exercises, Exercise } from "../../mocks/exercises";
+import ExerciseCard from "../../components/ExerciseCard";
 import { Search, Filter } from "lucide-react-native";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { useUserStore } from "@/store/userStore";
+import { useColorScheme } from "../../hooks/useColorScheme";
+import { useUserStore } from "../../store/userStore";
 
 export default function ExerciseScreen() {
   const colorScheme = useColorScheme();

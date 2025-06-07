@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
+import { useColorScheme } from "../hooks/useColorScheme";
+import Colors from "../constants/colors";
 import { Crown, X } from "lucide-react-native";
-import { useUserStore } from "@/store/userStore";
+import { useUserStore } from "../store/userStore";
 import { useRouter } from "expo-router";
 
 interface PremiumBannerProps {

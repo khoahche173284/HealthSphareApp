@@ -11,11 +11,11 @@ import {
 } from "react-native";
 import { Search, Filter } from "lucide-react-native";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
-import { useUserStore } from "@/store/userStore";
-import { vietnameseFoods, FoodItem } from "@/mocks/vietnameseFoods";
-import FoodCard from "@/components/FoodCard";
+import { useColorScheme } from "../../hooks/useColorScheme";
+import Colors from "../../constants/colors";
+import { useUserStore } from "../../store/userStore";
+import { vietnameseFoods, FoodItem } from "../../mocks/vietnameseFoods";
+import FoodCard from "../../components/FoodCard";
 
 export default function FoodScreen() {
   const colorScheme = useColorScheme();

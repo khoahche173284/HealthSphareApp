@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from "react-native";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
+import { useColorScheme } from "../hooks/useColorScheme";
+import Colors from "../constants/colors";
 import { Droplets, Plus } from "lucide-react-native";
-import { useUserStore } from "@/store/userStore";
+import { useUserStore } from "../store/userStore";
 
 const WATER_AMOUNTS = [100, 200, 300];
 

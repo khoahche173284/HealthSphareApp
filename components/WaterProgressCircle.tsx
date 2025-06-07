@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import Colors from '@/constants/colors';
+import { useColorScheme } from '../hooks/useColorScheme';
+import Colors from '../constants/colors';
 import Svg, { Circle } from 'react-native-svg';
 import { Droplets } from 'lucide-react-native';
 

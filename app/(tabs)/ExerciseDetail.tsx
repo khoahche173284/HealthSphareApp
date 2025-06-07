@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from "react-native";
-import Colors from "@/constants/colors";
-import { Exercise } from "@/mocks/exercises";
-import { useColorScheme } from "@/hooks/useColorScheme";
+import Colors from "../../constants/colors";
+import { Exercise } from "../../mocks/exercises";
+import { useColorScheme } from "../../hooks/useColorScheme";
 
 interface ExerciseDetailProps {
   exercise: Exercise;

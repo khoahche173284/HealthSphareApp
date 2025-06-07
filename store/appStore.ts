@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { UserProfile, BMIResult, CalorieResult, WaterIntakeGoal } from '@/types/user';
+import { UserProfile, BMIResult, CalorieResult, WaterIntakeGoal } from '../types/user';
 
 interface AppState {
   profile: UserProfile | null;

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { useAppStore } from '@/store/appStore';
+import { useColorScheme } from '../../hooks/useColorScheme';
+import { useAppStore } from '../../store/appStore';
 import { Stack } from 'expo-router';
-import Colors from '@/constants/colors';
-import { getCurrentDate, formatTime, formatLogDate } from '@/utils/date';
-import WaterProgressCircle from '@/components/WaterProgressCircle';
-import WaterLogItem from '@/components/WaterLogItem';
+import Colors from '../../constants/colors';
+import { getCurrentDate, formatTime, formatLogDate } from '../../utils/date';
+import WaterProgressCircle from '../../components/WaterProgressCircle';
+import WaterLogItem from '../../components/WaterLogItem';
 import { Plus, Droplets } from 'lucide-react-native';
 
 const WATER_AMOUNTS = [100, 200, 300, 500];

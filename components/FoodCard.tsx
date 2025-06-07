@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
+import { useColorScheme } from "../hooks/useColorScheme";
+import Colors from "../constants/colors";
 import { Flame } from "lucide-react-native";
-import { FoodItem } from "@/mocks/vietnameseFoods";
+import { FoodItem } from "../mocks/vietnameseFoods";
 
 interface FoodCardProps {
   food: FoodItem;
@@ -20,8 +20,14 @@ const FoodCard: React.FC<FoodCardProps> = ({ food, onPress }) => {
       onPress={onPress}
       activeOpacity={0.7}
     >
-      <Image source={{ uri: food.imageUrl }} style={styles.image} />
-      
+      {/* Ảnh được bọc trong wrapper để cố định kích thước */}
+      <View style={styles.imageWrapper}>
+        <Image 
+          source={{ uri: food.imageUrl }} 
+          style={styles.image} 
+        />
+      </View>
+
       <View style={styles.content}>
         <Text style={[styles.name, { color: colors.text }]} numberOfLines={1}>
           {food.name}
@@ -73,20 +79,30 @@ const FoodCard: React.FC<FoodCardProps> = ({ food, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 16,
-    overflow: 'hidden',
-    marginVertical: 8,
-    marginHorizontal: 2,
-    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Thay cho các thuộc tính shadow cũ
-    elevation: 2, // Android vẫn cần cái này để tạo bóng
-    position: 'relative',
-  },
-  
-  image: {
-    width: "100%",
+  width: "48%", // Nếu đang hiển thị 2 cột
+  height: 270, // Cố định chiều cao tổng thể
+  borderRadius: 16,
+  overflow: 'hidden',
+  marginVertical: 8,
+  marginHorizontal: 4,
+  elevation: 2,
+  backgroundColor: 'white',
+  position: 'relative',
+}
+,
+
+  imageWrapper: {
+    width: '100%',
     height: 150,
-    resizeMode: "cover",
+    overflow: 'hidden',
   },
+
+  image: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+
   content: {
     padding: 12,
   },

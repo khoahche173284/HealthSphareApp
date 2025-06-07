@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs } from "expo-router";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
+import { useColorScheme } from "../../hooks/useColorScheme";
+import Colors from "../../constants/colors";
 import { Home, Utensils, Dumbbell, User } from "lucide-react-native";
 
 export default function TabLayout() {

@@ -8,14 +8,14 @@ import {
   SafeAreaView,
   RefreshControl
 } from "react-native";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
-import { useUserStore } from "@/store/userStore";
+import { useColorScheme } from "../../hooks/useColorScheme";
+import Colors from "../../constants/colors";
+import { useUserStore } from "../../store/userStore";
 import { useRouter } from "expo-router";
-import BMIChart from "@/components/BMIChart";
-import WaterIntakeTracker from "@/components/WaterIntakeTracker";
-import CalorieCard from "@/components/CalorieCard";
-import PremiumBanner from "@/components/PremiumBanner";
+import BMIChart from "../../components/BMIChart";
+import WaterIntakeTracker from "../../components/WaterIntakeTracker";
+import CalorieCard from "../../components/CalorieCard";
+import PremiumBanner from "../../components/PremiumBanner";
 import { Bell, Info } from "lucide-react-native";
 
 export default function HomeScreen() {

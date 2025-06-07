@@ -12,10 +12,10 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
-import { useUserStore } from "@/store/userStore";
-import { activityLevels } from "@/constants/activityLevels";
+import { useColorScheme } from "../hooks/useColorScheme";
+import Colors from "../constants/colors";
+import { useUserStore } from "../store/userStore";
+import { activityLevels } from "../constants/activityLevels";
 import { ChevronRight } from "lucide-react-native";
 
 export default function OnboardingScreen() {

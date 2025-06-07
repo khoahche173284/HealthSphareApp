@@ -10,9 +10,9 @@ import {
   Switch,
   Platform
 } from "react-native";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
-import { useUserStore } from "@/store/userStore";
+import { useColorScheme } from "../../hooks/useColorScheme";
+import Colors from "../../constants/colors";
+import { useUserStore } from "../../store/userStore";
 import { useRouter } from "expo-router";
 import { 
   User, 

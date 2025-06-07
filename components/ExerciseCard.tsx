@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Exercise } from '@/mocks/exercises';
-import Colors from '@/constants/colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Exercise } from '../mocks/exercises';
+import Colors from '../constants/colors';
+import { useColorScheme } from '../hooks/useColorScheme';
 import { Clock, Dumbbell, Flame } from 'lucide-react-native';
 
 interface ExerciseCardProps {
@@ -82,6 +82,8 @@ const styles = StyleSheet.create({
   container: {
   borderRadius: 12,
   marginBottom: 16,
+  marginLeft: 8,
+  marginRight: 8,
   overflow: 'hidden',
   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Đây là cách mới để tạo bóng
   elevation: 2, // Android vẫn cần cái này
