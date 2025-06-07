@@ -95,7 +95,7 @@ export interface FoodItem {
     {
       id: "7",
       name: "Bò Kho",
-      calories: 500,
+      calories: 501,
       protein: 30,
       carbs: 40,
       fat: 20,
