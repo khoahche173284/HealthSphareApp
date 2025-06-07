@@ -6,9 +6,9 @@ import { useEffect } from "react";
 import { Platform } from "react-native";
 import { ErrorBoundary } from "./error-boundary";
 import { StatusBar } from "expo-status-bar";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
-import { useUserStore } from "@/store/userStore";
+import { useColorScheme } from "../hooks/useColorScheme";
+import Colors from "../constants/colors";
+import { useUserStore } from "../store/userStore";
 
 export const unstable_settings = {
   initialRouteName: "(tabs)",
