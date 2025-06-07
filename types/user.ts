@@ -30,3 +30,29 @@ export interface UserProfile {
     consumed: number; // in ml
     percentage: number; // 0-100
   }
+
+  export interface User {
+  id: number;
+  email: string;
+  password: string;
+  fullName: string;
+  createdAt: string;
+}
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+export interface RegisterData {
+  email: string;
+  password: string;
+  fullName: string;
+  confirmPassword: string;
+}
+
+export interface AuthResponse {
+  success: boolean;
+  message: string;
+  user?: Omit<User, 'password'>;
+}
