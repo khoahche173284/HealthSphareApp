@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect, } from "react";
 import { 
   View, 
   Text, 
@@ -35,10 +35,18 @@ export default function ProfileScreen() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [darkModeEnabled, setDarkModeEnabled] = useState(colorScheme === "dark");
   
+ useEffect(() => {
   if (!profile) {
-    router.replace("/onboarding");
-    return null;
+    setTimeout(() => {
+      router.replace("/onboarding");
+    }, 100); // delay để tránh lỗi "navigate before mount"
   }
+}, [profile]);
+
+if (!profile) {
+  return null; // chờ redirect xong thì thôi
+}
+
   
   const handleLogout = () => {
     Alert.alert(

@@ -49,10 +49,11 @@ export default function HomeScreen() {
     }, 1000);
   };
   
-  if (!profile) {
-    router.replace("/onboarding");
-    return null;
-  }
+  // if (!profile) {
+  //   router.replace("/onboarding");
+  //   return null;
+  // }
+  
   
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
