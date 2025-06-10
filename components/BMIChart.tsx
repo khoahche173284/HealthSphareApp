@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import Colors from "@/constants/colors";
+import { useColorScheme } from "../hooks/useColorScheme";
+import Colors from "../constants/colors";
 
 interface BMIChartProps {
   bmiValue: number;

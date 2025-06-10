@@ -14,6 +14,16 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onPress }) => {
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme];
 
+  // Map difficulty values to display strings
+  const difficultyDisplay =
+    exercise.difficulty === 'beginner'
+      ? 'Dễ'
+      : exercise.difficulty === 'intermediate'
+      ? 'Trung bình'
+      : exercise.difficulty === 'advanced'
+      ? 'Khó'
+      : exercise.difficulty;
+
   return (
     <TouchableOpacity 
       style={[styles.container, { backgroundColor: colors.card }]} 
@@ -28,27 +38,27 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onPress }) => {
           <View style={styles.infoItem}>
             <Clock size={16} color={colors.primary} />
             <Text style={[styles.infoText, { color: colors.muted }]}>
-              {exercise.duration} min
+              {exercise.duration} phút
             </Text>
           </View>
           
           <View style={styles.infoItem}>
             <Flame size={16} color={colors.warning} />
             <Text style={[styles.infoText, { color: colors.muted }]}>
-              {exercise.caloriesBurned} cal
+              {exercise.caloriesBurned} calo
             </Text>
           </View>
           
           <View style={styles.infoItem}>
             <Dumbbell size={16} color={colors.secondary} />
             <Text style={[styles.infoText, { color: colors.muted }]}>
-              {exercise.difficulty}
+              {difficultyDisplay}
             </Text>
           </View>
         </View>
         
         <View style={styles.tags}>
-          {exercise.muscleGroups.slice(0, 2).map((muscle, index) => (
+          {exercise.muscleGroups.slice(0, 5).map((muscle, index) => (
             <View 
               key={index} 
               style={[styles.tag, { backgroundColor: colors.highlight }]}
@@ -61,14 +71,14 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onPress }) => {
           {exercise.isForWeightGain && (
             <View style={[styles.tag, { backgroundColor: colors.highlight }]}>
               <Text style={[styles.tagText, { color: colors.primary }]}>
-                Weight Gain
+                Tăng Cân
               </Text>
             </View>
           )}
           {exercise.isForWeightLoss && (
             <View style={[styles.tag, { backgroundColor: colors.highlight }]}>
               <Text style={[styles.tagText, { color: colors.primary }]}>
-                Weight Loss
+                Giảm Cân
               </Text>
             </View>
           )}

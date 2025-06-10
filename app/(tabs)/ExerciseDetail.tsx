@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: "#222326", // màu xám đen
   },
   header: {
     flexDirection: "row",

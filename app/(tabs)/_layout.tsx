@@ -43,7 +43,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, size }) => <Utensils size={size} color={color} />,
         }}
       />
-
+  
       {/* Tab thứ ba - Bài tập */}
       <Tabs.Screen
         name="exercise"

@@ -58,18 +58,18 @@ export const useUserStore = create<UserState>()(
         let category: BMIResult["category"];
         let description: string;
         
-        if (bmi < 18.5) {
+          if (bmi < 18.5) {
           category = "underweight";
-          description = "You are underweight. Consider a healthy weight gain plan.";
+            description = "Bạn đang thiếu cân. Hãy cân nhắc một kế hoạch tăng cân lành mạnh.";
         } else if (bmi >= 18.5 && bmi < 23) {
           category = "normal";
-          description = "Your weight is normal. Maintain your healthy lifestyle!";
+            description = "Cân nặng của bạn bình thường. Hãy duy trì lối sống lành mạnh!";
         } else if (bmi >= 23 && bmi < 25) {
           category = "overweight";
-          description = "You are overweight. Consider a moderate weight loss plan.";
+            description = "Bạn đang thừa cân. Hãy cân nhắc một kế hoạch giảm cân hợp lý.";
         } else {
           category = "obese";
-          description = "You are in the obese range. A structured weight loss plan is recommended.";
+            description = "Bạn đang ở mức béo phì. Hãy cân nhắc một kế hoạch giảm cân khoa học.";
         }
         
         return {

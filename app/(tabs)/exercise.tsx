@@ -70,7 +70,7 @@ export default function ExerciseScreen() {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={styles.header}>
-        <Text style={[styles.title, { color: colors.text }]}>Bài tập</Text>
+        {/* <Text style={[styles.title, { color: colors.text }]}>Bài tập</Text> */}
         <Text style={[styles.subtitle, { color: colors.muted }]}>
           Khám phá các bài tập phù hợp với mục tiêu của bạn
         </Text>
@@ -180,11 +180,18 @@ export default function ExerciseScreen() {
       />
 
       {selectedExercise && (
-        <View style={styles.exerciseDetail}>
+        <View style={[styles.exerciseDetail, { backgroundColor: "#22252a" }]}>
           <Text style={{ color: colors.text, fontSize: 20, fontWeight: "bold" }}>
             {selectedExercise.name}
           </Text>
-          <Text style={{ color: colors.muted, marginTop: 8 }}>{selectedExercise.description}</Text>
+          
+          {Array.isArray(selectedExercise.steps)
+            ? selectedExercise.steps.map((step, idx) => (
+                <Text key={idx} style={{ color: colors.muted, marginTop: 8 }}>
+                  {step}
+                </Text>
+              ))
+            : null}
           <TouchableOpacity
             onPress={() => setSelectedExercise(null)}
             style={[styles.resetButton, { backgroundColor: colors.primary, marginTop: 16 }]}>

@@ -14,6 +14,7 @@ import { useColorScheme } from "../../hooks/useColorScheme";
 import Colors from "../../constants/colors";
 import { useUserStore } from "../../store/userStore";
 import { useRouter } from "expo-router";
+import { authStore } from '../../store/authStore';
 import { 
   User, 
   Settings, 
@@ -29,6 +30,7 @@ export default function ProfileScreen() {
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme];
   const router = useRouter();
+   const [isAuthenticated, setIsAuthenticated] = useState(false);
   
   const { profile, setProfile, setHasCompletedOnboarding } = useUserStore();
   
@@ -48,26 +50,16 @@ if (!profile) {
 }
 
   
-  const handleLogout = () => {
-    Alert.alert(
-      "Đăng xuất",
-      "Bạn có chắc chắn muốn đăng xuất không?",
-      [
-        {
-          text: "Hủy",
-          style: "cancel"
-        },
-        {
-          text: "Đăng xuất",
-          onPress: () => {
-            setHasCompletedOnboarding(false);
-            router.replace("/onboarding");
-          },
-          style: "destructive"
-        }
-      ]
-    );
-  };
+
+   const handleLogout = async () => {
+     try {
+      //  await authStore.logout();
+      //  setIsAuthenticated(false);
+       router.replace('/auth');
+     } catch (error) {
+       console.error('Logout error:', error);
+     }
+   };
   
   const handlePremiumPress = () => {
     router.push("/premium");
@@ -83,7 +75,7 @@ if (!profile) {
     // Here you would handle actual theme change
     // Note: In a real app, this would be handled by a theme provider
   };
-  
+   const currentUser = authStore.getCurrentUser();
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -94,7 +86,7 @@ if (!profile) {
           
           <View style={styles.userInfo}>
             <Text style={[styles.userName, { color: colors.text }]}>
-              Người dùng
+              Chào mừng, {currentUser?.fullName || 'User'}!
             </Text>
             <Text style={[styles.userDetails, { color: colors.muted }]}>
               {profile.gender === "male" ? "Nam" : "Nữ"}, {profile.age} tuổi
