@@ -30,7 +30,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Tổng quan",  // Tiêu đề của tab
+          title: "Trang Chủ",  // Tiêu đề của tab
           tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,  // Biểu tượng của tab
         }}
       />
