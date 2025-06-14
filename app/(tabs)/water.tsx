@@ -37,7 +37,7 @@ export default function WaterScreen() {
         <Stack.Screen options={{ title: "Cung Cấp Nước" }} />
         <View style={styles.emptyState}>
           <Text style={[styles.emptyStateText, { color: colors.text }]}>
-            Vui lòng hoàn thành hồ sơ của bạn trước
+            Vui lòng đăng ký gói Premium để trải nghiệm tính tăng này
           </Text>
         </View>
       </SafeAreaView>
