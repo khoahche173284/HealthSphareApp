@@ -31,18 +31,19 @@ export default function WaterScreen() {
     return () => clearInterval(interval);
   }, [currentDate]);
   
-  if (!profile || !waterGoal) {
-    return (
-      <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
-        <Stack.Screen options={{ title: "Cung Cấp Nước" }} />
-        <View style={styles.emptyState}>
-          <Text style={[styles.emptyStateText, { color: colors.text }]}>
-            Vui lòng đăng ký gói Premium để trải nghiệm tính tăng này
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  // đăng ký nước premium
+  // if (!profile || !waterGoal || !profile.isPremium) {
+  //   return (
+  //     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+  //       <Stack.Screen options={{ title: "Cung Cấp Nước" }} />
+  //       <View style={styles.emptyState}>
+  //         <Text style={[styles.emptyStateText, { color: colors.text }]}>
+  //           Vui lòng đăng ký gói Premium để trải nghiệm tính tăng này
+  //         </Text>
+  //       </View>
+  //     </SafeAreaView>
+  //   );
+  // }
   
   const handleAddWater = (amount: number) => {
     addWaterIntake(amount);
