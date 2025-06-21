@@ -60,11 +60,13 @@ export default function WaterScreen() {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Text style={[styles.date, { color: colors.text }]}>{currentDate}</Text>
         
-        <WaterProgressCircle 
-          percentage={waterGoal.percentage} 
-          consumed={waterGoal.consumed} 
-          goal={waterGoal.amount} 
-        />
+        {waterGoal && (
+          <WaterProgressCircle 
+            percentage={waterGoal.percentage} 
+            consumed={waterGoal.consumed} 
+            goal={waterGoal.amount} 
+          />
+        )}
         
         <View style={styles.buttonsContainer}>
           {WATER_AMOUNTS.map((amount) => (

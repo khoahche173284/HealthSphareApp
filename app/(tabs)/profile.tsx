@@ -141,7 +141,7 @@ if (!profile) {
             Tài khoản
           </Text>
           
-          <TouchableOpacity 
+          {/* <TouchableOpacity 
             style={[styles.menuItem, { backgroundColor: colors.card }]}
             onPress={handlePremiumPress}
           >
@@ -152,7 +152,7 @@ if (!profile) {
               </Text>
             </View>
             <ChevronRight size={20} color={colors.muted} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           
           <TouchableOpacity style={[styles.menuItem, { backgroundColor: colors.card }]}>
             <View style={styles.menuItemLeft}>
