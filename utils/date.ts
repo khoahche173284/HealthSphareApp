@@ -2,9 +2,15 @@
  * Returns the current date in a formatted string
  * @returns {string} Formatted date string (e.g., "Monday, January 1")
  */
+import dayjs from 'dayjs'
+import 'dayjs/locale/vi' // Import ngôn ngữ tiếng Việt
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.extend(relativeTime)
+dayjs.locale('vi')
 export const getCurrentDate = (): string => {
     const date = new Date();
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString('vi', {
       weekday: 'long',
       month: 'long',
       day: 'numeric',
@@ -18,7 +24,7 @@ export const getCurrentDate = (): string => {
    */
   export const formatTime = (timestamp: number): string => {
     const date = new Date(timestamp);
-    return date.toLocaleTimeString('en-US', {
+    return date.toLocaleTimeString('vi', {
       hour: 'numeric',
       minute: '2-digit',
       hour12: true,
@@ -61,11 +67,11 @@ export const getCurrentDate = (): string => {
     yesterday.setDate(yesterday.getDate() - 1);
     
     if (isSameDay(date, today)) {
-      return `Today, ${formatTime(timestamp)}`;
+      return `Hôm nay, ${formatTime(timestamp)}`;
     } else if (isSameDay(date, yesterday)) {
-      return `Yesterday, ${formatTime(timestamp)}`;
+      return `Hôm qua, ${formatTime(timestamp)}`;
     } else {
-      return `${date.toLocaleDateString('en-US', {
+      return `${date.toLocaleDateString('vi', {
         month: 'short',
         day: 'numeric',
       })}, ${formatTime(timestamp)}`;

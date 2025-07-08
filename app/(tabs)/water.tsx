@@ -8,6 +8,18 @@ import { getCurrentDate, formatTime, formatLogDate } from '../../utils/date';
 import WaterProgressCircle from '../../components/WaterProgressCircle';
 import WaterLogItem from '../../components/WaterLogItem';
 import { Plus, Droplets } from 'lucide-react-native';
+import dayjs from 'dayjs'
+import 'dayjs/locale/vi' // Import ngôn ngữ tiếng Việt
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.extend(relativeTime)
+dayjs.locale('vi')
+
+// const formatLogDate = (timestamp) => {
+//   return dayjs(timestamp).format('HH:mm [ngày] DD/MM/YYYY') 
+//   // ví dụ: "14:35 ngày 03/07/2025"
+// }
+
 
 const WATER_AMOUNTS = [100, 200, 300, 500];
 
@@ -32,18 +44,18 @@ export default function WaterScreen() {
   }, [currentDate]);
   
   // đăng ký nước premium
-  // if (!profile || !waterGoal || !profile.isPremium) {
-  //   return (
-  //     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
-  //       <Stack.Screen options={{ title: "Cung Cấp Nước" }} />
-  //       <View style={styles.emptyState}>
-  //         <Text style={[styles.emptyStateText, { color: colors.text }]}>
-  //           Vui lòng đăng ký gói Premium để trải nghiệm tính tăng này
-  //         </Text>
-  //       </View>
-  //     </SafeAreaView>
-  //   );
-  // }
+  if (!profile || !waterGoal || !profile.isPremium) {
+    return (
+      <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+        <Stack.Screen options={{ title: "Cung Cấp Nước" }} />
+        <View style={styles.emptyState}>
+          <Text style={[styles.emptyStateText, { color: colors.text }]}>
+            Vui lòng đăng ký gói Premium để trải nghiệm tính tăng này
+          </Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
   
   const handleAddWater = (amount: number) => {
     addWaterIntake(amount);

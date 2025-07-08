@@ -69,14 +69,14 @@ export default function ExerciseScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={styles.header}>
+      <View style={[styles.header,{margin: 10 }]}>
         {/* <Text style={[styles.title, { color: colors.text }]}>Bài tập</Text> */}
         <Text style={[styles.subtitle, { color: colors.muted }]}>
           Khám phá các bài tập phù hợp với mục tiêu của bạn
         </Text>
       </View>
 
-      <View style={[styles.searchContainer, { backgroundColor: colors.card }]}>
+      <View style={[styles.searchContainer, { backgroundColor: colors.card ,margin: 10 }]}>
         <Search size={20} color={colors.muted} />
         <TextInput
           style={[styles.searchInput, { color: colors.text }]}
@@ -87,7 +87,7 @@ export default function ExerciseScreen() {
         />
       </View>
 
-      <View style={styles.categoriesContainer}>
+      <View style={[styles.categoriesContainer,{margin: 10 }]}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {difficulties.map((difficulty) => (
             <TouchableOpacity
@@ -118,7 +118,7 @@ export default function ExerciseScreen() {
         </ScrollView>
       </View>
 
-      <View style={styles.filtersContainer}>
+      <View style={[styles.filtersContainer,{margin: 10 }]}>
         <View style={styles.filterHeader}>
           <View style={styles.filterTitleContainer}>
             <Filter size={16} color={colors.muted} />
@@ -184,6 +184,19 @@ export default function ExerciseScreen() {
           <Text style={{ color: colors.text, fontSize: 20, fontWeight: "bold" }}>
             {selectedExercise.name}
           </Text>
+            <Text
+            style={{ color: colors.primary, fontSize: 16, marginTop: 8, textDecorationLine: "underline" }}
+            onPress={() => {
+              if (selectedExercise.linkYtb) {
+              // Open YouTube link
+              import("react-native").then(({ Linking }) => {
+                Linking.openURL(selectedExercise.linkYtb);
+              });
+              }
+            }}
+            >
+            Xem video hướng dẫn
+            </Text>
           
           {Array.isArray(selectedExercise.steps)
             ? selectedExercise.steps.map((step, idx) => (

@@ -83,10 +83,10 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
         
-        {/* {showPremiumBanner && (
+        {showPremiumBanner && (
           <PremiumBanner onClose={() => setShowPremiumBanner(false)} />
         )}
-         */}
+        
         <View style={[styles.bmiCard, { backgroundColor: colors.card }]}>
           <View style={styles.bmiHeader}>
             <Text style={[styles.cardTitle, { color: colors.text }]}>

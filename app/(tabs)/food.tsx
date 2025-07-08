@@ -21,11 +21,14 @@ export default function FoodScreen() {
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme];
 
-  const { profile } = useUserStore();
+  const { calculateCalories, profile } = useUserStore();
+  const calories = calculateCalories();
+  const { dailyCalories, proteinGrams, carbsGrams, fatGrams } = calories;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
+  const [totalCalories, setTotalCalories] = useState(0);
 
   const filteredFoods = useMemo(() => {
     return vietnameseFoods.filter((food) => {
@@ -60,14 +63,27 @@ export default function FoodScreen() {
     { id: "weightLoss", label: "Giảm cân" },
     { id: "weightGain", label: "Tăng cân" },
   ];
+  const handleSelectFood = (food: FoodItem) => {
+    const newTotal = totalCalories + food.calories;
+    if (newTotal > dailyCalories) {
+      alert("Bạn đã vượt quá mức calories cho phép trong ngày!");
+    }
+    setTotalCalories(newTotal);
+  };
+
 
   const renderFoodItem = ({ item }: { item: FoodItem }) => (
-    <FoodCard food={item} />
+    <FoodCard food={item} onPress={() => handleSelectFood(item)} />
   );
+
+
+  // const renderFoodItem = ({ item }: { item: FoodItem }) => (
+  //   <FoodCard food={item} />
+  // );
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={styles.header}>
+      <View style={[styles.header, { margin: 10 }]}>
         <Text style={[styles.title, { color: colors.text }]}>
           Thực phẩm Việt Nam
         </Text>
@@ -75,9 +91,25 @@ export default function FoodScreen() {
           Khám phá các món ăn phù hợp với mục tiêu của bạn
         </Text>
       </View>
+      <View style={{ marginHorizontal: 16, marginBottom: 12 }}>
+        <Text style={{ color: colors.text, fontWeight: '500', marginBottom: 4 }}>
+          Calories đã chọn: {totalCalories} / {dailyCalories} kcal
+        </Text>
+        <View style={{ height: 10, backgroundColor: colors.border, borderRadius: 8 }}>
+          <View
+            style={{
+              width: `${Math.min((totalCalories / dailyCalories) * 100, 100)}%`,
+              height: '100%',
+              backgroundColor: colors.primary,
+              borderRadius: 8,
+            }}
+          />
+        </View>
+      </View>
+
 
       {/* Search bar */}
-      <View style={[styles.searchContainer, { backgroundColor: colors.card }]}>
+      <View style={[styles.searchContainer, { backgroundColor: colors.card, margin: 10 }]}>
         <Search size={20} color={colors.muted} />
         <TextInput
           style={[styles.searchInput, { color: colors.text }]}
@@ -89,7 +121,7 @@ export default function FoodScreen() {
       </View>
 
       {/* Category selector */}
-      <View style={styles.categoriesContainer}>
+      <View style={[styles.categoriesContainer, { margin: 10 }]}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {categories.map((category) => {
             const isActive = selectedCategory === category.id;
@@ -119,7 +151,7 @@ export default function FoodScreen() {
       </View>
 
       {/* Filter by goal */}
-      <View style={styles.filtersContainer}>
+      <View style={[styles.filtersContainer, { margin: 10 }]}>
         <View style={styles.filterHeader}>
           <View style={styles.filterTitleContainer}>
             <Filter size={16} color={colors.muted} />
